@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <title>Library</title>
+    <script src="script.js" defer>“use strict”</script>
+    <title>My Library</title>
 </head>
 
 <body>
@@ -19,27 +19,27 @@
                 <div>Add a new book</div>
                 <div class="title">
                     <label for="title">Title:</label>
-                    <input type="text" id="title">
+                    <input type="text" id="title" name="title" required>
                 </div>
                 <div class="author">
                     <label for="author">Author:</label>
-                    <input type="text" id="author">
+                    <input type="text" id="author" name="author" required>
                 </div>
                 <div class="pages">
-                    <label for="pages">How many pages:</label>
-                    <input type="text" id="pages">
+                    <label for="pages">Number of pages:</label>
+                    <input type="number" id="pages" name="pages" required min="1" oninput="validity.valid||(value='');">
                 </div>
                 <div class="read">
-                    <input type="checkbox" id="read">
+                    <input type="checkbox" id="read" name="read">
                     <label for="read">I have read this book</label>
                 </div>
                 <button type="submit" id="submit">Add</button>
+                <button type="text" id="cancel">Cancel</button>
             </form>
         </div>
     </div>
-    <main>
-        <div class="book-container"></div>
-    </main>
+    <div class="book-container"></div>
+
 </body>
 
 </html>
