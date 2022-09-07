@@ -126,13 +126,13 @@ form {
     display: flex;
     font-size: 1.2em;
     align-items: center;
-    gap: 15px;
+    gap: 18px;
 
 }
 
 #read {
     cursor: pointer;
-    transform: scale(1.5);
+    transform: scale(1.3);
     accent-color: white;
 }
 
