@@ -6,35 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer>“use strict”</script>
+    <link rel="icon" type="image/x-icon" href="/book-open.svg">
+    <script src="script.js" defer>“use strict”;</script>
     <title>My Library</title>
 </head>
 
 <body>
-    <header>My Library</header>
-    <button class="add-book" id="add-book">+ Add book</button>
+    <header>MY LIBRARY</header>
+    <button class="add-book" id="add-book">+</button>
     <div class="modal-container" id="modal-container">
         <div class="modal">
             <form>
-                <div>Add a new book</div>
-                <div class="title">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" required>
-                </div>
-                <div class="author">
-                    <label for="author">Author:</label>
-                    <input type="text" id="author" name="author" required>
-                </div>
-                <div class="pages">
-                    <label for="pages">Number of pages:</label>
-                    <input type="number" id="pages" name="pages" required min="1" oninput="validity.valid||(value='');">
-                </div>
+                <div class="form-title">Add a new book</div>
+                <input type="text" id="title" name="title" placeholder="Title" required maxlength="100">
+                <input type="text" id="author" name="author" placeholder="Author" required maxlength="100">
+                <input type="number" id="pages" name="pages" placeholder="Pages" required min="1"
+                    oninput="validity.valid||(value='');">
                 <div class="read">
                     <input type="checkbox" id="read" name="read">
                     <label for="read">I have read this book</label>
                 </div>
-                <button type="submit" id="submit">Add</button>
-                <button type="text" id="cancel">Cancel</button>
+                <div class="form-action">
+                    <button type="submit" id="submit">Add</button>
+                    <button type="text" id="cancel">Cancel</button>
+                </div>
             </form>
         </div>
     </div>
