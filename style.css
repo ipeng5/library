@@ -124,13 +124,15 @@ form {
 
 .read {
     display: flex;
-    gap: 15px;
     font-size: 1.2em;
+    align-items: center;
+    gap: 15px;
+
 }
 
 #read {
     cursor: pointer;
-    width: 30px;
+    transform: scale(1.5);
     accent-color: white;
 }
 
