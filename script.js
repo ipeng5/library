@@ -1,7 +1,7 @@
 // Store book objects in an array and display in book container
 let myLibrary = [];
-// Class for books
 
+// Class for books
 class Book {
   constructor(title, author, pages, read) {
     this.title = title;
@@ -15,6 +15,7 @@ class Book {
 function addBookToLibrary(title, author, pages, read) {
   let book = new Book(title, author, pages, read);
   myLibrary.push(book);
+  setLocalStorage();
   displayBook();
 }
 
@@ -73,7 +74,23 @@ function displayBook() {
 
   // Remove the card when clicking 'x'
   removeBtn.addEventListener('click', e => {
+    const curTitle = e.target.closest('.card').firstChild.textContent;
+    const index = findBook(myLibrary, curTitle);
+    myLibrary.splice(index, 1);
+
     e.target.closest('.card').remove();
+
+    setLocalStorage();
+  });
+}
+
+function findBook(library, title) {
+  if (library.length === 0 || library === null) return;
+  library.forEach(book => {
+    // if (book.title === title) return library.indexOf(book);
+    if (book.title === title) {
+      return library.indexOf(book);
+    }
   });
 }
 
@@ -106,6 +123,20 @@ cancel.addEventListener('click', e => {
   modalContainer.classList.remove('show');
   reset();
 });
+
+function setLocalStorage() {
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
+function getLocalStorage() {
+  const data = JSON.parse(localStorage.getItem('myLibrary'));
+  if (!data) return;
+
+  data.forEach(book => {
+    addBookToLibrary(book.title, book.author, book.pages, book.read);
+  });
+}
+getLocalStorage();
 
 // Reset form input after cancelling or submitting
 function reset() {
